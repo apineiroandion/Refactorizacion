@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import tenis.Main;
+import tenis.Main;
 
 public class MainTest {
 

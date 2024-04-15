@@ -1,13 +1,18 @@
+package tenis;
+
 public class Main {
     /**
      * metodo para devolver la puntuacion de tenis
      */
-    public static String getScore(int m_score1, int m_score2) {
+    public static String getScore(int playerScore1, int playerScore2) {
         String score = "";
-        int tempScore=0;
+        final int MAX_SCORE = 4;
+        final int ADVANTAGE_PLAYER1 = 1;
+        final int ADVANTAGE_PLAYER2 = -1;
+        final int WIN_PLAYER1 = 2;
 
-        if (m_score1 == m_score2) {
-            switch (m_score1)
+        if (playerScore1 == playerScore2) {
+            switch (playerScore1)
             {
                 case 0:
                     score = "Love-All";
@@ -27,21 +32,22 @@ public class Main {
 
             }
         }
-        else if (m_score1 >=4 || m_score2 >=4)
+        else if (playerScore1 >=MAX_SCORE || playerScore2 >=MAX_SCORE)
         {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
+            int advantage = playerScore1-playerScore2;
+            if (advantage==ADVANTAGE_PLAYER1) score ="Advantage player1";
+            else if (advantage ==ADVANTAGE_PLAYER2) score ="Advantage player2";
+            else if (advantage>=WIN_PLAYER1) score = "Win for player1";
             else score ="Win for player2";
         }
         else
         {
             for (int i=1; i<3; i++)
             {
-                if (i==1) tempScore = m_score1;
-                else { score+="-"; tempScore = m_score2;}
-                switch(tempScore)
+                int auxScore = 0;
+                if (i==1) auxScore = playerScore1;
+                else { score+="-"; auxScore = playerScore2;}
+                switch(auxScore)
                 {
                     case 0:
                         score+="Love";
