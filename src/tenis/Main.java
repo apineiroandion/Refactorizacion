@@ -25,7 +25,9 @@ public class Main {
          * Win fpr player one
          */
         final int WIN_PLAYER1 = 2;
-
+        /**
+         * Equals scores
+         */
         if (playerScore1 == playerScore2) {
             switch (playerScore1)
             {
@@ -47,6 +49,9 @@ public class Main {
 
             }
         }
+        /**
+         * advantages
+         */
         else if (playerScore1 >=MAX_SCORE || playerScore2 >=MAX_SCORE)
         {
             int advantage = playerScore1-playerScore2;
@@ -55,6 +60,9 @@ public class Main {
             else if (advantage>=WIN_PLAYER1) score = "Win for player1";
             else score ="Win for player2";
         }
+        /**
+         * points
+         */
         else
         {
             for (int i=1; i<3; i++)
