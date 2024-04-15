@@ -5,10 +5,25 @@ public class Main {
      * metodo para devolver la puntuacion de tenis
      */
     public static String getScore(int playerScore1, int playerScore2) {
+        /**
+         * String to construct the sentence
+         */
         String score = "";
+        /**
+         * Max score to compare
+         */
         final int MAX_SCORE = 4;
-        final int ADVANTAGE_PLAYER1 = 1;
-        final int ADVANTAGE_PLAYER2 = -1;
+        /**
+         * Avantage for player one
+         */
+        final int ADVANTAGE_PLAYER_1 = 1;
+        /**
+         * Avantage for player two
+         */
+        final int ADVANTAGE_PLAYER_2 = -1;
+        /**
+         * Win fpr player one
+         */
         final int WIN_PLAYER1 = 2;
 
         if (playerScore1 == playerScore2) {
@@ -35,8 +50,8 @@ public class Main {
         else if (playerScore1 >=MAX_SCORE || playerScore2 >=MAX_SCORE)
         {
             int advantage = playerScore1-playerScore2;
-            if (advantage==ADVANTAGE_PLAYER1) score ="Advantage player1";
-            else if (advantage ==ADVANTAGE_PLAYER2) score ="Advantage player2";
+            if (advantage==ADVANTAGE_PLAYER_1) score ="Advantage player1";
+            else if (advantage ==ADVANTAGE_PLAYER_2) score ="Advantage player2";
             else if (advantage>=WIN_PLAYER1) score = "Win for player1";
             else score ="Win for player2";
         }
