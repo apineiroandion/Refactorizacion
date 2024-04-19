@@ -1,22 +1,6 @@
 package tenis;
 
 public class Main {
-    /**
-     * Max score to compare
-     */
-    final static int MAX_SCORE = 4;
-    /**
-     * Avantage for player one
-     */
-    final static int ADVANTAGE_PLAYER_1 = 1;
-    /**
-     * Avantage for player two
-     */
-    final static int ADVANTAGE_PLAYER_2 = -1;
-    /**
-     * Win fpr player one
-     */
-    final static int WIN_PLAYER1 = 2;
 
     /**
      * Method to get the Score o players
@@ -24,7 +8,12 @@ public class Main {
      * @param playerScore2 Score of player two
      * @return String for the marker
      */
+    //TODO : cambiar las condiciones de los if
     public static String getScore(int playerScore1, int playerScore2) {
+        /**
+         * Max score to compare
+         */
+        final int MAX_SCORE = 4;
         /**
          * String to construct the sentence
          */
@@ -48,28 +37,22 @@ public class Main {
      * @param playerScore1 Score of player one when the players are tied
      * @return String for the marker
      */
+    //TODO : cambiar strings a array
     public static String getEqualScore(int playerScore1){
-        String score = "";
             switch (playerScore1)
             {
                 case 0:
-                    score = "Love-All";
-                    break;
+                    return "Love-All";
                 case 1:
-                    score = "Fifteen-All";
-                    break;
+                    return "Fifteen-All";
                 case 2:
-                    score = "Thirty-All";
-                    break;
+                    return "Thirty-All";
                 case 3:
-                    score = "Forty-All";
-                    break;
+                    return "Forty-All";
                 default:
-                    score = "Deuce";
-                    break;
+                    return "Deuce";
 
             }
-        return score;
     }
 
     /**
@@ -79,9 +62,21 @@ public class Main {
      * @return String for the marker when a player have avantage
      */
     public static String getAvantageScore(int playerScore1, int playerScore2){
+        /**
+         * Avantage for player one
+         */
+        final int ADVANTAGE_PLAYER_1 = 1;
+        /**
+         * Avantage for player two
+         */
+        final int ADVANTAGE_PLAYER_2 = -1;
+        /**
+         * Win fpr player one
+         */
+        final int WIN_PLAYER1 = 2;
         String score = "";
         int advantage = playerScore1-playerScore2;
-        if (advantage==Main.ADVANTAGE_PLAYER_1) score ="Advantage player1";
+        if (advantage==ADVANTAGE_PLAYER_1) score ="Advantage player1";
         else if (advantage ==ADVANTAGE_PLAYER_2) score ="Advantage player2";
         else if (advantage>=WIN_PLAYER1) score = "Win for player1";
         else score ="Win for player2";
@@ -119,4 +114,5 @@ public class Main {
         }
         return score;
     }
+    //TODO : Metodos para el if
 }
