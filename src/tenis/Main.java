@@ -8,20 +8,15 @@ public class Main {
      * @param playerScore2 Score of player two
      * @return String for the marker
      */
-    //TODO : cambiar las condiciones de los if
     public static String getScore(int playerScore1, int playerScore2) {
-        /**
-         * Max score to compare
-         */
-        final int MAX_SCORE = 4;
         /**
          * String to construct the sentence
          */
         String score = "";
-        if (playerScore1 == playerScore2) {
+        if (isEqual(playerScore1, playerScore2)) {
             score = getEqualScore(playerScore1);
         }
-        else if (playerScore1 >=MAX_SCORE || playerScore2 >=MAX_SCORE)
+        else if (isEqual(playerScore2, playerScore1))
         {
             score = getAvantageScore(playerScore1, playerScore2);
         }
@@ -37,7 +32,6 @@ public class Main {
      * @param playerScore1 Score of player one when the players are tied
      * @return String for the marker
      */
-    //TODO : cambiar strings a array
     public static String getEqualScore(int playerScore1){
          String[] scoreAsEqual = {"Love-All", "Fifteen-All", "Thirty-All", "Forty-All", "Deuce"};
         switch (playerScore1)
@@ -63,6 +57,7 @@ public class Main {
      * @return String for the marker when a player have avantage
      */
     public static String getAvantageScore(int playerScore1, int playerScore2){
+        String[] scoreAsAdvantage = {"Advantage player1", "Advantage player2", "Win for player1", "Win for player2"};
         /**
          * Avantage for player one
          */
@@ -77,10 +72,10 @@ public class Main {
         final int WIN_PLAYER1 = 2;
         String score = "";
         int advantage = playerScore1-playerScore2;
-        if (advantage==ADVANTAGE_PLAYER_1) score ="Advantage player1";
-        else if (advantage ==ADVANTAGE_PLAYER_2) score ="Advantage player2";
-        else if (advantage>=WIN_PLAYER1) score = "Win for player1";
-        else score ="Win for player2";
+        if (advantage==ADVANTAGE_PLAYER_1) score = scoreAsAdvantage[0];
+        else if (advantage ==ADVANTAGE_PLAYER_2) score = scoreAsAdvantage[1];
+        else if (advantage>=WIN_PLAYER1) score = scoreAsAdvantage[2];
+        else score = scoreAsAdvantage[3];
         return score;
     }
 
@@ -92,6 +87,7 @@ public class Main {
      */
     public static String getScoreByPoints(int playerScore1, int playerScore2){
         String score = "";
+        String[] scoreByPoints = {"Love", "Fifteen", "Thirty", "Forty"};
         for (int i=1; i<3; i++)
         {
             int auxScore = 0;
@@ -100,20 +96,42 @@ public class Main {
             switch(auxScore)
             {
                 case 0:
-                    score+="Love";
+                    score+=scoreByPoints[0];
                     break;
                 case 1:
-                    score+="Fifteen";
+                    score+=scoreByPoints[1];
                     break;
                 case 2:
-                    score+="Thirty";
+                    score+=scoreByPoints[2];
                     break;
                 case 3:
-                    score+="Forty";
+                    score+=scoreByPoints[3];
                     break;
             }
         }
         return score;
     }
-    //TODO : Metodos para el if
+
+    /**
+     * Method that checks that the score of both players is equal
+     * @param playerScore1
+     * @param playerScore2
+     * @return true or false
+     */
+    public static boolean isEqual(int playerScore1, int playerScore2){
+        return playerScore1 == playerScore2;
+    }
+    /**
+     * Method that checks which player has the advantage
+     * @param playerScore1
+     * @param playerScore2
+     * @return true or false
+     */
+    public static boolean isAvantage(int playerScore1, int playerScore2){
+        /**
+         * Max score to compare
+         */
+        final int MAX_SCORE = 4;
+        return playerScore1 >=MAX_SCORE || playerScore2 >=MAX_SCORE;
+    }
 }
