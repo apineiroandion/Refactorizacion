@@ -39,18 +39,19 @@ public class Main {
      */
     //TODO : cambiar strings a array
     public static String getEqualScore(int playerScore1){
-            switch (playerScore1)
+         String[] scoreAsEqual = {"Love-All", "Fifteen-All", "Thirty-All", "Forty-All", "Deuce"};
+        switch (playerScore1)
             {
                 case 0:
-                    return "Love-All";
+                    return scoreAsEqual[0];
                 case 1:
-                    return "Fifteen-All";
+                    return scoreAsEqual[1];
                 case 2:
-                    return "Thirty-All";
+                    return scoreAsEqual[2];
                 case 3:
-                    return "Forty-All";
+                    return scoreAsEqual[3];
                 default:
-                    return "Deuce";
+                    return scoreAsEqual[4];
 
             }
     }
