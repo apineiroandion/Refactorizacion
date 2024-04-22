@@ -16,7 +16,7 @@ public class Main {
         if (isEqual(playerScore1, playerScore2)) {
             score = getEqualScore(playerScore1);
         }
-        else if (isEqual(playerScore2, playerScore1))
+        else if (isAvantage(playerScore2, playerScore1))
         {
             score = getAvantageScore(playerScore1, playerScore2);
         }
